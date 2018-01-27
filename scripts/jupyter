@@ -1,0 +1,5 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
+${SCRIPT_DIR}/run jupyter notebook --no-browser --allow-root --ip="0.0.0.0" --notebook-dir=/tmp/working
