@@ -3,7 +3,7 @@ FROM nvidia/cuda:9.1-cudnn7-runtime
 ENV CONDA_VERSION "5.0.1"
 ENV PATH "/root/anaconda3/bin:$PATH"
 
-RUN apt-get update -y \
+RUN apt-get -qq update -y \
  && apt-get -qq install -y curl git build-essential
 
 RUN curl -O https://repo.continuum.io/archive/Anaconda3-${CONDA_VERSION}-Linux-x86_64.sh \
