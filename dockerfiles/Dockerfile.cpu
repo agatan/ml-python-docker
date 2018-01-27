@@ -1,5 +1,6 @@
 FROM continuumio/anaconda3:5.0.1
 
 RUN conda install -y --quiet numpy matplotlib jupyter scipy scikit-learn seaborn \
-                      tensorflow keras pymc3 \
+                  tensorflow keras pymc3 \
+                  scikit-image cython numba Pillow h5py \
  && pip install jupyter-tensorboard

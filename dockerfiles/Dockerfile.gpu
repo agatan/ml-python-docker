@@ -11,4 +11,5 @@ RUN curl -O https://repo.continuum.io/archive/Anaconda3-${CONDA_VERSION}-Linux-x
 
 RUN conda install -y --quiet numpy matplotlib jupyter scipy scikit-learn seaborn \
                   tensorflow tensorflow-gpu keras pymc3 \
+                  scikit-image cython numba Pillow h5py \
  && pip install jupyter-tensorboard
