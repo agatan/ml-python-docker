@@ -15,4 +15,4 @@ script:
 
 after_success:
   - docker --version
-  - [[ "$TRAVIS_BRANCH" == "master" ]] && make push
+  - ./script/ci/build
