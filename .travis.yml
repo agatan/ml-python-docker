@@ -8,7 +8,5 @@ env:
 install:
 - echo "noop for install"
 script:
-- echo "noop for script"
-after_success:
 - docker --version
 - "./script/ci/build"
