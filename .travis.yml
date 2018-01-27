@@ -1,0 +1,8 @@
+language: c
+
+services:
+  docker
+
+deploy:
+  provider: script
+  script: ./script/ci/deploy
