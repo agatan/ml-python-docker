@@ -15,5 +15,4 @@ script:
 
 after_success:
   - docker --version
-  - docker build . -f ./dockerfiles/Dockerfile.cpu -t ${IMAGE_NAME}:cpu
-  - docker build . -f ./dockerfiles/Dockerfile.gpu -t ${IMAGE_NAME}:gpu
+  - [[ "$TRAVIS_BRANCH" == "master" ]] && make push
