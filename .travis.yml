@@ -1,5 +1,19 @@
+language: c
+
 services:
   docker
 
-build:
-  ./script/ci/build
+env:
+  global:
+    - IMAGE_NAME=agatan/ml-python
+
+install:
+  - echo "noop for install"
+
+script:
+  - echo "noop for script"
+
+after_success:
+  - docker --version
+  - docker build . -f ./dockerfiles/Dockerfile.cpu -t ${IMAGE_NAME}:cpu
+  - docker build . -f ./dockerfiles/Dockerfile.gpu -t ${IMAGE_NAME}:gpu
