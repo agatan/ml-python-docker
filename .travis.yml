@@ -1,6 +1,5 @@
 services:
   docker
 
-deploy:
-  provider: script
-  script: ./script/ci/deploy
+build:
+  ./script/ci/build
