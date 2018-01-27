@@ -1,18 +1,14 @@
 language: c
-
-services:
-  docker
-
+services: docker
 env:
   global:
-    - IMAGE_NAME=agatan/ml-python
-
+  - IMAGE_NAME=agatan/ml-python
+  - secure: tdyQGuLEugO91XMgBSfzfEfUumF8o4x6zN5OIF3loJHw3FGAWL6aN4h2cPYoJnQHdR8+qZbKo7TvCQwUqa5IjmVWvxM75xMVvpuTKDLxBf/WdiEnkTX0zSaR+y+P8XqAYKvbYDjecFlxRImifGofWtOWx7/zbCSnqiH78DJqf3OHTh+iX4GMAMGZIleQn7QuWJG1m9GxlYnCrXtRH4oLfLOkpAcRULcamaNvB8eYOMCH7t69gCo8zktXtLb36QwbAGSVGSJHAeg3ORpiM58LUqu8TZxFK15W6augq6XeYtd0JXffCVMnSBHa59QcTJinhBpn5hdK2UJUJ0FghqERyywmb+5gSxZKLHGWFDkU1vJ33MEoE0m83ziyDrC8cJZdNPY2HVQo0hzIDwkvfvI91o+6LY/pNxdoIFpnMbFtBnMJFau5+pwhr8O7d1rzQJP2qXngtDTDGVcaqx3Y5bEa1SfefKzKDSCwur5cHD7AV8r/igN50/TOT4ec+KtDSg+PfUZ5iBY7T4dGWZJMUMdY/FhnC7/qKi115DNDI6vQsE3uOeBCGteeJY0buJ4lFjGCmALWio9hyWySDBWS4NJAVGD/5XrUtO/S/oMxZZoetLth1YpqeeLRdGZtVnkD+WG2uaxgYeM5uJMrqNjmk7qJRuRJXMUA9XPZPAheRNRzCaM=
+  - secure: C8HMmyj+mw4S4vl8CGQs170xGZdww40J66Lqjtg0xuH2u2jd8ZULqA4FC3Og1K4tNjrFm1Z3glz4KOUnlnzLRZ8Et+NKNycLpU6mtfWotL9fAcaGZxFLifO/NdRF8VjkO1z/LsbskAsYmRYidBUUjMpABIYK2/4F6EruKXIjAvVt+cext0fRnoT9O25JLp8ZHnvkYjLzupaLnmosnxcUHJxnEqGZyfeA7BaRZr1kGo0fqWOLfs3uTqkDyvL2UXHGirjoyDp86kMOaoJv6vLE/TFcYDinnHmEEIgOSaSLAX9Ny2rxIfOGPob2RTkvvNR9b0JVVBIcMXEISwNu7Q3o4EjCO87/ebQy1ALAgsaam9Ukjmi+IsJSlo1sv6qDv/9Qjqo6aNO4P+HsNNrnlIyQrgYLx7qZ5/r/2p6nS5RKOwajFOBYxZWli5bLrgVqBN+h1ajXXu9CSNiil+E05zaOJzqosEknDxrIPkW5qsiCAzf8iGRll7JojiTVxM0tnEB7Y61txi3+AAxygfOmlHLKHVQ8YYP6IzszHDcUn5nW6mlM5VEZbhjEEyhLk3tlau5gW5qT7gUZpdSb7JMyt7yFgbnCJOY0KI8odVBgY5NaCORDgJhxrofi6eHh7xa6XwlBvncJnHHuhYo4foGerOqlJ41XbAp9GPxIS3zOX8TQDik=
 install:
-  - echo "noop for install"
-
+- echo "noop for install"
 script:
-  - echo "noop for script"
-
+- echo "noop for script"
 after_success:
-  - docker --version
-  - ./script/ci/build
+- docker --version
+- "./script/ci/build"

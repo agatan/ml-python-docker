@@ -1,5 +1,8 @@
 #!/bin/bash
 
-set -xue
+set -ue
 
-[[ "$TRAVIS_BRANCH" == "master" ]] && make push
+if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+  docker login -u="${DOCKER_USER}" -p="${DOCKER_PASSWORD}"
+  make push
+fi
