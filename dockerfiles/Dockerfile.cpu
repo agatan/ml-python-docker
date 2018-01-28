@@ -1,5 +1,18 @@
-FROM continuumio/anaconda3:5.0.1
+FROM python:3.6.4-slim
 
-RUN conda install -y --quiet numpy matplotlib jupyter scipy scikit-learn seaborn \
-                      tensorflow keras pymc3 \
- && pip install jupyter-tensorboard
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
+RUN apt-get -qq update -y \
+ && apt-get -qq install -y build-essential \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /tmp/working
+
+COPY Pipfile /tmp/working/Pipfile
+COPY Pipfile.lock /tmp/working/Pipfile.lock
+
+RUN pip3 install pipenv \
+ && pipenv install --ignore-pipfile
+
+ENTRYPOINT ["pipenv", "run"]
