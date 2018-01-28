@@ -1,14 +1,31 @@
 #!/bin/bash
 
+set -ue
+
 DOCKER_FLAGS=
 IMAGE_TAG=cpu-latest
 
+set +u
 if [[ "$GPU" = 1 ]]; then
+  echo "==== GPU MODE"
   DOCKER_FLAGS='--runtime=nvidia'
   IMAGE_TAG=gpu-latest
 fi
+set -u
+
+VOLUME_IMAGE_NAME=ml-python-volume
+
+if ! (docker ps -a | grep ${VOLUME_IMAGE_NAME} >/dev/null); then
+  echo "... volume container is missing."
+  docker create \
+    -v /root/.keras \
+    --name ${VOLUME_IMAGE_NAME} \
+    alpine
+  echo "... volume container ${VOLUME_IMAGE_NAME} is created."
+fi
 
 docker run ${DOCKER_FLAGS} --rm -it \
+  --volumes-from ml-python-volume \
   -v $PWD:/tmp/working \
   -w=/tmp/working \
   -p 8888:8888  \
