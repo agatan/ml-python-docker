@@ -1,26 +1,15 @@
-FROM nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04
+FROM nvidia/cuda:9.1-cudnn7-runtime
 
-ENV LC_ALL=C.UTF-8
-ENV LANG=C.UTF-8
+ENV CONDA_VERSION "5.0.1"
+ENV PATH "/root/anaconda3/bin:$PATH"
 
 RUN apt-get -qq update -y \
- && apt-get -qq install -y software-properties-common \
- && add-apt-repository ppa:jonathonf/python-3.6 \
- && apt-get -qq update -y \
- && apt-get -qq install -y wget python3.6 libgomp1 \
- && rm -rf /var/lib/apt/lists/* \
- && cd /tmp \
- && wget https://bootstrap.pypa.io/get-pip.py \
- && python3.6 get-pip.py \
- && rm /tmp/*
+ && apt-get -qq install -y curl git build-essential
 
-WORKDIR /tmp/working
+RUN curl -O https://repo.continuum.io/archive/Anaconda3-${CONDA_VERSION}-Linux-x86_64.sh \
+ && bash Anaconda3-${CONDA_VERSION}-Linux-x86_64.sh -b
 
-COPY Pipfile /tmp/working/Pipfile
-COPY Pipfile.lock /tmp/working/Pipfile.lock
-
-RUN pip3 install pipenv \
- && pipenv install --ignore-pipfile \
- && pipenv install tensorflow-gpu
-
-ENTRYPOINT ["pipenv", "run"]
+RUN conda install -y --quiet numpy matplotlib jupyter scipy scikit-learn seaborn \
+                  tensorflow tensorflow-gpu keras pymc3 \
+                  scikit-image cython numba Pillow h5py \
+ && pip install jupyter-tensorboard
