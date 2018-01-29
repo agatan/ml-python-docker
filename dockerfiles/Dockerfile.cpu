@@ -3,5 +3,4 @@ FROM continuumio/anaconda3:5.0.1
 RUN conda install -y --quiet numpy matplotlib jupyter scipy scikit-learn seaborn \
                   tensorflow keras pymc3 \
                   scikit-image cython numba Pillow h5py \
- && conda install -y --quiet pytorch torchvision -c pytorch \
  && pip install jupyter-tensorboard
