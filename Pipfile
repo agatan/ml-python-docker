@@ -20,8 +20,9 @@ tensorflow = "*"
 jupyter-tensorboard = "*"
 numba = "*"
 cython = "*"
-h5py = "*"
-pymc3 = "*"
+"h5py" = "*"
+"pymc3" = "*"
+requests = "*"
 
 
 [dev-packages]
