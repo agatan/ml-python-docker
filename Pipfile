@@ -23,6 +23,10 @@ cython = "*"
 "h5py" = "*"
 "pymc3" = "*"
 requests = "*"
+tornado = "*"
+jupyterlab = "*"
+ipdb = "*"
+icecream = "*"
 
 
 [dev-packages]
