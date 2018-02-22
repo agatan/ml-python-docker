@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "fcf74821bf5c44dc9e8c5123c48fa836d43c01af53373a3aed1387429b9950f4"
+            "sha256": "509d2293ab295202c97ccb4f69d9b46863114c69d98487033b74aeda582a9d8c"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -29,6 +29,10 @@
         ]
     },
     "default": {
+        "59d3f8a": {
+            "file": "http://download.pytorch.org/whl/torch-0.3.1-cp36-cp36m-macosx_10_7_x86_64.whl",
+            "os_name": "== 'osx'"
+        },
         "absl-py": {
             "hashes": [
                 "sha256:908eba9a96a37c10f10074aba57d685070b814906b02a1ea2cf54bb10a6b8c74"
@@ -553,7 +557,6 @@
                 "sha256:e8c43b5eee76b2083a9badde89fd1bbce6c8942d1045146e100b7b5e014f4f1a",
                 "sha256:e64193f0047ad603b71f202332ab5527c5e52aa7c8b609704fc28c0dc20c4365"
             ],
-            "markers": "os_name != 'nt'",
             "version": "==0.5.2"
         },
         "pygments": {
@@ -836,6 +839,20 @@
             ],
             "version": "==1.0.1"
         },
+        "torch": {
+            "hashes": [
+                "sha256:2f51160b720829f4f5295fe158bd87211d1d26323220cbf25fc60dcd548ef1c2",
+                "sha256:444577bb356fa64eaa530ca4948ea10fd5effec5b5d5edbc39e729c603ca0521",
+                "sha256:40717581b8616c9d3c18192bcf53d76ea469399e1d475d45e8ac1859824ffc59"
+            ],
+            "version": "==0.3.0.post4"
+        },
+        "torchvision": {
+            "hashes": [
+                "sha256:b4aadc07407c37542b94e38f710cfee6e53bb8e8633418094d476c5e417cbc80"
+            ],
+            "version": "==0.2.0"
+        },
         "tornado": {
             "hashes": [
                 "sha256:92b7ca81e18ba9ec3031a7ee73d4577ac21d41a0c9b775a9182f43301c3b5f8e",
@@ -886,7 +903,6 @@
                 "sha256:e721e53864f084f956f40f96124a74da0631ac13fbbd1ba99e8e2b5e9cafdf64",
                 "sha256:9515fe0a94e823fd90b08d22de45d7bde57c90edce705b22f5e1ecf7e1b653c8"
             ],
-            "markers": "python_version >= '3'",
             "version": "==0.30.0"
         },
         "widgetsnbextension": {
