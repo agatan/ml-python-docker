@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "509d2293ab295202c97ccb4f69d9b46863114c69d98487033b74aeda582a9d8c"
+            "sha256": "509f03802892fc1928041e9692425c95e1614203c2827e755dbbd27df86414fd"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -31,7 +31,7 @@
     "default": {
         "59d3f8a": {
             "file": "http://download.pytorch.org/whl/torch-0.3.1-cp36-cp36m-macosx_10_7_x86_64.whl",
-            "os_name": "== 'osx'"
+            "sys_platform": "== 'darwin'"
         },
         "absl-py": {
             "hashes": [
@@ -190,6 +190,7 @@
                 "sha256:fcc6d46f08c3c4de7b15ae1c426e15be1b7932bcda9d83ce1a4304e8c1129df3",
                 "sha256:51c158a6c8b899898d1c91c6b51a34110196815cc905f9be0fa5878e19355608"
             ],
+            "markers": "python_version >= '3.3'",
             "version": "==6.2.1"
         },
         "ipython-genutils": {
@@ -557,6 +558,7 @@
                 "sha256:e8c43b5eee76b2083a9badde89fd1bbce6c8942d1045146e100b7b5e014f4f1a",
                 "sha256:e64193f0047ad603b71f202332ab5527c5e52aa7c8b609704fc28c0dc20c4365"
             ],
+            "markers": "os_name != 'nt'",
             "version": "==0.5.2"
         },
         "pygments": {
@@ -903,6 +905,7 @@
                 "sha256:e721e53864f084f956f40f96124a74da0631ac13fbbd1ba99e8e2b5e9cafdf64",
                 "sha256:9515fe0a94e823fd90b08d22de45d7bde57c90edce705b22f5e1ecf7e1b653c8"
             ],
+            "markers": "python_version >= '3'",
             "version": "==0.30.0"
         },
         "widgetsnbextension": {
