@@ -4,7 +4,7 @@ ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
 RUN apt-get -qq update -y \
- && apt-get -qq install -y build-essential \
+ && apt-get -qq install -y build-essential python-opencv \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tmp/working

@@ -7,7 +7,7 @@ RUN apt-get -qq update -y \
  && apt-get -qq install -y software-properties-common \
  && add-apt-repository ppa:jonathonf/python-3.6 \
  && apt-get -qq update -y \
- && apt-get -qq install -y wget python3.6 libgomp1 \
+ && apt-get -qq install -y wget python3.6 libgomp1 python-opencv \
  && rm -rf /var/lib/apt/lists/* \
  && cd /tmp \
  && wget https://bootstrap.pypa.io/get-pip.py \
@@ -21,6 +21,6 @@ COPY Pipfile.lock /tmp/working/Pipfile.lock
 
 RUN pip3 install pipenv \
  && pipenv install --ignore-pipfile \
- && pipenv install tensorflow-gpu
+ && pipenv run pip install tensorflow-gpu
 
 ENTRYPOINT ["pipenv", "run"]
