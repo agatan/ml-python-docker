@@ -20,7 +20,11 @@ COPY Pipfile /tmp/working/Pipfile
 COPY Pipfile.lock /tmp/working/Pipfile.lock
 
 RUN pip3 install pipenv \
- && pipenv install --ignore-pipfile \
- && pipenv run pip install tensorflow-gpu
+ && pipenv install http://download.pytorch.org/whl/cu90/torch-0.3.1-cp36-cp36m-linux_x86_64.whl \
+ && pipenv install torchvision \
+ && pipenv install --ignore-pipfile
+
+ARG DISABLE_GPU
+RUN [ "$DISABLE_GPU" = "1" ] || pipenv run pip install tensorflow-gpu
 
 ENTRYPOINT ["pipenv", "run"]
