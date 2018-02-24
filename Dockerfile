@@ -4,27 +4,27 @@ ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
 RUN apt-get -qq update -y \
- && apt-get -qq install -y software-properties-common \
- && add-apt-repository ppa:jonathonf/python-3.6 \
- && apt-get -qq update -y \
- && apt-get -qq install -y wget python3.6 libgomp1 python-opencv \
- && rm -rf /var/lib/apt/lists/* \
- && cd /tmp \
- && wget https://bootstrap.pypa.io/get-pip.py \
- && python3.6 get-pip.py \
- && rm /tmp/*
+ && apt-get -qq install -y wget bzip2 \
+ && rm -rf /var/lib/apt/lists/*
 
+RUN cd /tmp \
+ && wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+ && bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda \
+ && rm Miniconda3-latest-Linux-x86_64.sh
+
+ENV PATH /opt/conda/bin:$PATH
 WORKDIR /tmp/working
 
 COPY Pipfile /tmp/working/Pipfile
 COPY Pipfile.lock /tmp/working/Pipfile.lock
 
-RUN pip3 install pipenv \
- && pipenv install http://download.pytorch.org/whl/cu90/torch-0.3.1-cp36-cp36m-linux_x86_64.whl \
- && pipenv install torchvision \
+RUN pip install pipenv \
+ && pipenv --python /opt/conda/bin/python \
+ && pipenv run conda install pytorch \
+ && pipenv run conda install torchvision \
  && pipenv install --ignore-pipfile
 
 ARG DISABLE_GPU
-RUN [ "$DISABLE_GPU" = "1" ] || pipenv run pip install tensorflow-gpu
+RUN [ "$DISABLE_GPU" = "1" ] || pipenv run pip install tensorflow-gpu==1.5.0
 
 ENTRYPOINT ["pipenv", "run"]
